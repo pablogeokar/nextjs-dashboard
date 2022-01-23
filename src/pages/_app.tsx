@@ -33,30 +33,42 @@ const GlobalStyle = createGlobalStyle`
     display: block;
     width: 100%;
   }
-
   h1{
     font-weight: 800;
     font-size: 1.8rem;
   }
-
   h2{
     font-size: 1.4rem;
   }
-
   h3{
     font-size: .87rem;
   }
-
   h4{
     font-size: .8rem;
   }
-
   h5{
     font-size: .77rem;
   }
-
   small{
     font-size: .75rem;
+  }
+  p{
+    color: ${theme.colors.darkVariant};
+  }
+  b{
+    color: ${theme.colors.dark};
+  }
+  .primary{
+    color: ${theme.colors.primary}!important;
+  }
+  .danger{
+    color: ${theme.colors.danger}!important;
+  }
+  .success{
+    color: ${theme.colors.success}!important;
+  }
+  .warning{
+    color: ${theme.colors.warning}!important;
   }
 `
 

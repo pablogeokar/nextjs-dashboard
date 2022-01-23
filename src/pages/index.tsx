@@ -1,13 +1,15 @@
 
 import Layout from './../components/Layout';
-import Aside from './../components/Aside';
+import Menu from '../components/Menu';
 import Main from '../components/Main';
+import Aside from '../components/Aside';
 
 export default function Home() {
   return (
     <Layout>
-      <Aside />
+      <Menu />
       <Main />
+      <Aside />
     </Layout >
   )
 }

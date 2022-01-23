@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Small from './Small';
 
 const Container = styled.div`
   cursor: pointer;
@@ -89,7 +90,7 @@ export default function Card() {
             </div>
           </div>
         </div>
-        <small className='text-muted'>Last 24 Hours</small>
+        <Small>Last 24 Hours</Small>
       </div>
     </Container>
   )

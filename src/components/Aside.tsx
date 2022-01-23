@@ -1,157 +1,126 @@
 import styled from 'styled-components'
+import ProfilePhoto from './ProfilePhoto'
+import Small from './Small'
 
 const Container = styled.div`
-  height: 100vh;
+  margin-top: 1.4rem;
 
-  .top{
-    /*background: white;*/
+  .theme-toggler{
+    background: ${({ theme }) => theme.colors.light};
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin-top: 1.4rem;
-  }
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: ${({ theme }) => theme.borderRadius1};
 
-  .logo {
-    display: flex;
-    gap: .8rem;
+    span{
+      font-size: 1.2rem;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    img{
-     width: 2rem;
-     height: 2rem;
+      &.active{
+        background: ${({ theme }) => theme.colors.primary};
+        color: white;
+        border-radius: ${({ theme }) => theme.borderRadius1};
+      }
     }
   }
-  
-  .close{
-    display: none;
-  }
-
-  .sidebar{
-   /* background: white;*/
+  .top{
     display: flex;
-    flex-direction: column;
-    height: 86vh;
-    position: relative;
-    top: 3rem;
-
-    a{
+    justify-content: end;
+    gap: 2rem;
+    
+    .profile{
       display: flex;
-      color: ${({ theme }) => theme.colors.infoDark};
-      margin-left: 2rem;
-      gap: 1rem;
-      align-items: center;
-      position: relative;
-      height: 3.7rem;
+      gap: 2rem;
+      text-align: right;
+    }
+
+    button{
+      display: none;
+    }
+  }
+  .recent-updates{
+    margin-top: 1rem;
+
+    h2{
+      margin-bottom: .8rem;
+    }
+
+    .updates{
+      background: ${({ theme }) => theme.colors.white};
+      padding: ${({ theme }) => theme.cardPadding};
+      border-radius: ${({ theme }) => theme.cardBorderRadius};
+      box-shadow: ${({ theme }) => theme.boxShadow};
       transition: all 300ms ease;
 
       &:hover{
-          color: ${({ theme }) => theme.colors.primary};
-
-          span{
-            margin-left: 1rem;
-          }
-        }
-
-      &.active{
-        background: ${({ theme }) => theme.colors.light};
-        color: ${({ theme }) => theme.colors.primary};
-        margin-left: 0;
-
-        span{
-          /*color: ${({ theme }) => theme.colors.primary};*/
-          margin-left: calc(1rem - 3px);
-        }       
-
-        &:before{
-          content: '';
-          width: 6px;
-          height: 100%;
-          background: ${({ theme }) => theme.colors.primary};
-        }
+        box-shadow: none;
       }
 
-      &:last-child{
-        position: absolute;
-        bottom: 2rem;
-        width: 100%;
-      }
-
-      span{
-        font-size: 1.6rem;
-        transition: all 300ms ease;
+      .update{
+        display: grid;
+        grid-template-columns: 2.5rem auto;
+        gap: 1rem;
+        margin-bottom: 1rem;
       }
     }
-
-    .message-count{
-      background: ${({ theme }) => theme.colors.danger};
-      color:  ${({ theme }) => theme.colors.white};
-      padding: 2px 10px;
-      font-size: 11px;
-      border-radius: ${({ theme }) => theme.borderRadius1};
-    }
-  }
-
-  h3{
-    font-weight: 500;
   }
 `
 
 export default function Aside() {
   return (
     <Container>
+
       <div className="top">
-        <div className="logo">
-          <img src="brand-logo.jpg" alt="" />
-          <h2>ZIONIX</h2>
+        <button id="menu-btn">
+          <span className='material-icons-sharp'>menu</span>
+        </button>
+        <div className="theme-toggler">
+          <span className='material-icons-sharp active'>light_mode</span>
+          <span className='material-icons-sharp'>dark_mode</span>
         </div>
-
-        <div className="close">
-          <span className='material-icons-sharp'>close</span>
+        <div className="profile">
+          <div className="info">
+            <p>Olá, <b>Pablo</b></p>
+            <Small>Admin</Small>
+          </div>
+          <ProfilePhoto />
         </div>
       </div>
 
-      <div className="sidebar">
-        <a href="#">
-          <span className='material-icons-sharp'>grid_view</span>
-          <h3>Dashboard</h3>
-        </a>
-        <a href="#" className='active'>
-          <span className='material-icons-sharp'>person_outline</span>
-          <h3>Customers</h3>
-        </a>
-        <a href="#">
-          <span className='material-icons-sharp'>receipt_long</span>
-          <h3>Orders</h3>
-        </a>
-        <a href="#">
-          <span className='material-icons-sharp'>insights</span>
-          <h3>Analytics</h3>
-        </a>
-        <a href="#">
-          <span className='material-icons-sharp'>mail_outline</span>
-          <h3>Messages</h3>
-          <span className='message-count'>26</span>
-        </a>
-        <a href="#">
-          <span className='material-icons-sharp'>inventory</span>
-          <h3>Products</h3>
-        </a>
-        <a href="#">
-          <span className='material-icons-sharp'>report_gmailerrorred</span>
-          <h3>Reports</h3>
-        </a>
-        <a href="#">
-          <span className='material-icons-sharp'>settings</span>
-          <h3>Settings</h3>
-        </a>
-        <a href="#">
-          <span className='material-icons-sharp'>add</span>
-          <h3>Add Product</h3>
-        </a>
-        <a href="#">
-          <span className='material-icons-sharp'>logout</span>
-          <h3>Logout</h3>
-        </a>
+      <div className="recent-updates">
+        <h2>Recent Updates</h2>
+        <div className="updates">
+          <div className="update">
+            <ProfilePhoto />
+            <div className="message">
+              <p><b>Mike Tyson</b>received his order of Night Lion tech GPS drone.</p>
+              <Small>2 Minutes Ago</Small>
+            </div>
+          </div>
+          <div className="update">
+            <ProfilePhoto />
+            <div className="message">
+              <p><b>Mike Tyson</b>received his order of Night Lion tech GPS drone.</p>
+              <Small>2 Minutes Ago</Small>
+            </div>
+          </div>
+          <div className="update">
+            <ProfilePhoto />
+            <div className="message">
+              <p><b>Mike Tyson</b>received his order of Night Lion tech GPS drone.</p>
+              <Small>2 Minutes Ago</Small>
+            </div>
+          </div>
+        </div>
       </div>
+
     </Container>
   )
 }
