@@ -7,7 +7,7 @@ import Aside from '../components/Aside';
 export default function Home() {
   return (
     <Layout>
-      <Menu />
+      <Menu />      
       <Main />
       <Aside />
     </Layout >

@@ -1,126 +1,130 @@
 import styled from 'styled-components'
-import ProfilePhoto from './ProfilePhoto'
-import Small from './Small'
+import ProfileContainer from '../containers/ProfileContainer'
+import RecentUpdates from '../containers/RecentUpdates'
+import Small from './Small';
+
 
 const Container = styled.div`
   margin-top: 1.4rem;
-
-  .theme-toggler{
-    background: ${({ theme }) => theme.colors.light};
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 1.6rem;
-    width: 4.2rem;
-    cursor: pointer;
-    border-radius: ${({ theme }) => theme.borderRadius1};
-
-    span{
-      font-size: 1.2rem;
-      width: 50%;
-      height: 100%;
+  
+  .sales-analytics{
+    margin-top: 2rem;
+    h2{
+      margin-bottom: .8rem;
+    }
+    .item{
+      background: ${({ theme }) => theme.colors.white};
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: .7rem;
+      padding: 1.4rem ${({ theme }) => theme.cardPadding};
+      border-radius: ${({ theme }) => theme.borderRadius3};
+      box-shadow: ${({ theme }) => theme.boxShadow};
+      transition: all 300ms ease;
+      .icon{
+        padding: .6rem;
+        color: ${({ theme }) => theme.colors.white};
+        border-radius: 50%;
+        background:${({ theme }) => theme.colors.primary};
+        display: flex;
+      }
+      .right{
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin: 0;
+        width: 100%;
+      }
+      &.offline .icon{
+        background:${({ theme }) => theme.colors.danger};
+      }
+      &.customers .icon{
+        background:${({ theme }) => theme.colors.success};
+      }      
+      &:hover{
+        box-shadow: none;
+      }
+    }
+    .add-product{
+      background: transparent;
+      border: 2px dashed ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.primary};
       display: flex;
       align-items: center;
       justify-content: center;
 
-      &.active{
-        background: ${({ theme }) => theme.colors.primary};
-        color: white;
-        border-radius: ${({ theme }) => theme.borderRadius1};
+      div{
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+
+        h3{
+          font-weight: 600;
+        }
       }
     }
-  }
-  .top{
-    display: flex;
-    justify-content: end;
-    gap: 2rem;
-    
-    .profile{
-      display: flex;
-      gap: 2rem;
-      text-align: right;
-    }
-
-    button{
-      display: none;
-    }
-  }
-  .recent-updates{
-    margin-top: 1rem;
-
-    h2{
-      margin-bottom: .8rem;
-    }
-
-    .updates{
-      background: ${({ theme }) => theme.colors.white};
-      padding: ${({ theme }) => theme.cardPadding};
-      border-radius: ${({ theme }) => theme.cardBorderRadius};
-      box-shadow: ${({ theme }) => theme.boxShadow};
-      transition: all 300ms ease;
-
-      &:hover{
-        box-shadow: none;
-      }
-
-      .update{
-        display: grid;
-        grid-template-columns: 2.5rem auto;
-        gap: 1rem;
-        margin-bottom: 1rem;
-      }
-    }
-  }
+  }    
 `
 
 export default function Aside() {
   return (
     <Container>
 
-      <div className="top">
-        <button id="menu-btn">
-          <span className='material-icons-sharp'>menu</span>
-        </button>
-        <div className="theme-toggler">
-          <span className='material-icons-sharp active'>light_mode</span>
-          <span className='material-icons-sharp'>dark_mode</span>
-        </div>
-        <div className="profile">
-          <div className="info">
-            <p>Olá, <b>Pablo</b></p>
-            <Small>Admin</Small>
-          </div>
-          <ProfilePhoto />
-        </div>
-      </div>
+      <RecentUpdates />
+      <div className="sales-analytics">
 
-      <div className="recent-updates">
-        <h2>Recent Updates</h2>
-        <div className="updates">
-          <div className="update">
-            <ProfilePhoto />
-            <div className="message">
-              <p><b>Mike Tyson</b>received his order of Night Lion tech GPS drone.</p>
-              <Small>2 Minutes Ago</Small>
-            </div>
+        <h2>Sales Analytics</h2>
+        <div className="item online">
+          <div className="icon">
+            <span className='material-icons-sharp'>shopping_cart</span>
           </div>
-          <div className="update">
-            <ProfilePhoto />
-            <div className="message">
-              <p><b>Mike Tyson</b>received his order of Night Lion tech GPS drone.</p>
-              <Small>2 Minutes Ago</Small>
+          <div className="right">
+            <div className="info">
+              <h3>ONLINE ORDERS</h3>
+              <Small>last 24 Hours</Small>
             </div>
-          </div>
-          <div className="update">
-            <ProfilePhoto />
-            <div className="message">
-              <p><b>Mike Tyson</b>received his order of Night Lion tech GPS drone.</p>
-              <Small>2 Minutes Ago</Small>
-            </div>
+            <h5 className='success'>+39%</h5>
+            <h3>3849</h3>
           </div>
         </div>
-      </div>
 
+        <div className="item offline">
+          <div className="icon">
+            <span className='material-icons-sharp'>local_mall</span>
+          </div>
+          <div className="right">
+            <div className="info">
+              <h3>OFFLINE ORDERS</h3>
+              <Small>last 24 Hours</Small>
+            </div>
+            <h5 className='danger'>-17%</h5>
+            <h3>1100</h3>
+          </div>
+        </div>
+
+        <div className="item customers">
+          <div className="icon">
+            <span className='material-icons-sharp'>person</span>
+          </div>
+          <div className="right">
+            <div className="info">
+              <h3>NEW CUSTOMERS</h3>
+              <Small>last 24 Hours</Small>
+            </div>
+            <h5 className='success'>-39%</h5>
+            <h3>3849</h3>
+          </div>
+        </div>
+
+        <div className="item add-product">
+          <div>
+            <span className='material-icons-sharp'>add</span>
+            <h3>Add Product</h3>
+          </div>
+        </div>
+
+      </div>
     </Container>
   )
 }

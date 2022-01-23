@@ -69,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
   }
   .warning{
     color: ${theme.colors.warning}!important;
-  }
+  }  
 `
 
 export default function App({ Component, pageProps }: AppProps) {

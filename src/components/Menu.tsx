@@ -93,6 +93,58 @@ const Container = styled.div`
   h3{
     font-weight: 500;
   }
+  @media screen and (max-width: 1200px){ 
+    .logo h2{
+      display: none;
+    }
+    .sidebar h3{
+      display: none;
+    }
+    .sidebar a{
+      width: 5.6rem;
+
+      &:last-child{
+        position: relative;
+        margin-top: 1.8rem;
+      }
+    }
+  }
+  @media screen and (max-width: 768px){
+    position: fixed;
+    left: 0;
+    background: ${({ theme }) => theme.colors.white};
+    width: 18rem;
+    z-index: 3;
+    box-shadow: 1rem 3rem 4rem ${({ theme }) => theme.colors.light};
+    height: 100vh;
+    padding-right:${({ theme }) => theme.cardPadding};
+    display: none;
+
+    .logo{
+      margin-left: 1rem;
+      h2{
+        display: inline;
+      }
+    }
+    .sidebar {
+      h3{
+      display: inline;
+      }
+      a{
+        width: 100%;
+        height: 3.4rem;
+
+        &:last-child{
+          position: absolute;
+          bottom: 5rem;
+        }
+      }
+    } 
+    .close{
+      display: inline-block;
+      cursor: pointer;
+    }   
+  }
 `
 
 export default function Menu() {

@@ -40,6 +40,34 @@ const Container = styled.div`
     margin: 1rem auto;
     color: ${({ theme }) => theme.colors.primary};
   }
+  @media screen and (max-width: 1200px){
+    width: 94%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 2rem 0 0 8.8rem;
+
+    table{
+      width: 83vw;
+
+      thead tr th:last-child, & thead tr th:first-child{
+        display: none;            
+      }
+      tbody tr td:last-child, tbody tr td:first-child{
+        display: none;
+      }
+    }
+  }
+  @media screen and (max-width: 768px){
+    position: relative;
+    margin: 3rem 0 0 0;
+    width: 100%;
+
+    table{
+      width: 100%;
+      margin: 0;
+    }
+  }
 `
 
 export default function Table() {
