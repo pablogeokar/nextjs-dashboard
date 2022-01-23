@@ -1,22 +1,68 @@
 import { AppProps } from 'next/app';
-import Head from 'next/head'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import { theme } from '../config/theme';
+import theme from '../config/theme';
 
+const GlobalStyle = createGlobalStyle`  
+  *{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+  }
+  html {
+    font-size: 14px;
+  }
+  body {
+    width: 100vw;
+    height: 100vh;
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    background: ${theme.colors.background};
+    user-select: none;
+    overflow-x: hidden;
+    color: ${theme.colors.dark};
+  }
+  a{
+    color: ${theme.colors.dark};
+  }
+  img{
+    display: block;
+    width: 100%;
+  }
 
-const GlobalStyle = createGlobalStyle``
+  h1{
+    font-weight: 800;
+    font-size: 1.8rem;
+  }
 
+  h2{
+    font-size: 1.4rem;
+  }
+
+  h3{
+    font-size: .87rem;
+  }
+
+  h4{
+    font-size: .8rem;
+  }
+
+  h5{
+    font-size: .77rem;
+  }
+
+  small{
+    font-size: .75rem;
+  }
+`
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-        <meta name="theme-color" content="#1d262d" />
-      </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
