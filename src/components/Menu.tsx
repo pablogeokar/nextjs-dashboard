@@ -13,8 +13,9 @@ const Container = styled.div`
 
   .logo {
     display: flex;
-    gap: .8rem;
-
+    gap: .8rem;    
+    /*justify-content: center;*/
+    width: 100%;
     img{
      width: 2rem;
      height: 2rem;
@@ -119,6 +120,7 @@ const Container = styled.div`
     height: 100vh;
     padding-right:${({ theme }) => theme.cardPadding};
     display: none;
+    grid-area: menu;
 
     .logo{
       margin-left: 1rem;

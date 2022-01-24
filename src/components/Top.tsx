@@ -3,7 +3,6 @@ import ProfilePhoto from './ProfilePhoto'
 import Small from './Small'
 
 const Container = styled.div`
-background-color: red;
     display: flex;
     justify-content: end;
     gap: 2rem;

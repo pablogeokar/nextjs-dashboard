@@ -1,15 +1,17 @@
+import Aside from "../components/C_Aside";
+import Header from "../components/C_Header";
+import Layout from "../components/C_Layout";
+import Menu from "../components/Menu";
+import Main from './../components/C_Main';
 
-import Layout from './../components/Layout';
-import Menu from '../components/Menu';
-import Main from '../components/Main';
-import Aside from '../components/Aside';
 
 export default function Home() {
   return (
     <Layout>
-      <Menu />      
+      <Header />
+      <Menu />
       <Main />
       <Aside />
-    </Layout >
+    </Layout>
   )
 }
