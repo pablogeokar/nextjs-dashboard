@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import Card from './Card'
 import Table from './Table'
-import Top from './Top'
 
-const Container = styled.div`
+const Container = styled.div`   
+  grid-area: main;
   margin-top: 1.4rem;  
   .date{
     display: inline-block;
@@ -30,15 +30,17 @@ const Container = styled.div`
       }
    }
    @media screen and (max-width: 768px){
-    
+     /*
+    margin-top: 8rem;
+    padding: 0 1rem;
+    */
    }
 `
 
 export default function Main() {
   return (
-    <Container>
 
-      <Top />
+    <Container>
 
       <h1>Dashboard</h1>
 

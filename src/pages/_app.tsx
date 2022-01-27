@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app';
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import theme from '../config/theme';
+import theme from '../config/darkTheme';
 
 const GlobalStyle = createGlobalStyle`  
   *{

@@ -3,8 +3,7 @@ import styled from 'styled-components'
 const Container = styled.div`
   height: 100vh;
 
-  .top{
-    /*background: white;*/
+  .top{   
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -112,7 +111,7 @@ const Container = styled.div`
   }
   @media screen and (max-width: 768px){
     position: fixed;
-    left: 0;
+    left: -100%;
     background: ${({ theme }) => theme.colors.white};
     width: 18rem;
     z-index: 3;
@@ -120,7 +119,19 @@ const Container = styled.div`
     height: 100vh;
     padding-right:${({ theme }) => theme.cardPadding};
     display: none;
+    animation: showMenu 400ms ease forwards;
     grid-area: menu;
+
+    @keyframes showMenu {
+      to{
+        left: 0;
+      }
+    }
+
+    .close{
+      display: inline-block;
+      cursor: pointer;
+    } 
 
     .logo{
       margin-left: 1rem;
@@ -141,24 +152,20 @@ const Container = styled.div`
           bottom: 5rem;
         }
       }
-    } 
-    .close{
-      display: inline-block;
-      cursor: pointer;
-    }   
+    }         
   }
 `
 
 export default function Menu() {
   return (
-    <Container>
+    <Container id='menu'>
       <div className="top">
         <div className="logo">
           <img src="brand-logo.jpg" alt="" />
           <h2>ZIONIX</h2>
         </div>
 
-        <div className="close">
+        <div className="close" id="close-btn">
           <span className='material-icons-sharp'>close</span>
         </div>
       </div>

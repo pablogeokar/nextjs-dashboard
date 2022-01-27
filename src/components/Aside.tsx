@@ -1,10 +1,9 @@
 import styled from 'styled-components'
-import ProfileContainer from '../containers/ProfileContainer'
 import RecentUpdates from '../containers/RecentUpdates'
-import Small from './Small';
+import Small from './Small'
 
-
-const Container = styled.div`
+const Container = styled.div`    
+  grid-area: aside;
   margin-top: 1.4rem;
   
   .sales-analytics{
@@ -64,13 +63,18 @@ const Container = styled.div`
         }
       }
     }
-  }    
+  }  
+  @media screen and (max-width: 768px){
+    .right{
+      width: 94%;
+      margin: 0 auto 4rem;
+    } 
+  }  
 `
 
 export default function Aside() {
   return (
     <Container>
-
       <RecentUpdates />
       <div className="sales-analytics">
 
@@ -125,6 +129,7 @@ export default function Aside() {
         </div>
 
       </div>
+
     </Container>
   )
 }

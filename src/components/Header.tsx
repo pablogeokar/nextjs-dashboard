@@ -47,6 +47,40 @@ span{
   }
 }
 }
+@media screen and (max-width: 768px){
+  .top{
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    padding: 0 .8rem;
+    height: 4.6rem;
+    background: ${({ theme }) => theme.colors.white};
+    width: 100%;
+    margin: 0;
+    z-index: 2;
+    box-shadow: 0 1rem 1rem ${({ theme }) => theme.colors.light};
+
+    button{
+      display: inline-block;
+      background: transparent;
+      cursor: pointer;
+      color:  ${({ theme }) => theme.colors.dark};
+      position: absolute;
+      left: 1rem;
+
+      span{
+        font-size: 2rem;
+      }
+    }
+
+    .theme-toggler{
+      width: 4.4rem;
+      position: absolute;
+      left: 50%;
+    }
+  }
+}
 `
 
 export default function Header() {
