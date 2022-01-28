@@ -1,40 +1,12 @@
 import styled from 'styled-components'
 import Card from './Card'
+import ContainerGrid from './ContainerGrid'
+import InputDate from './InputDate'
 import Table from './Table'
 
 const Container = styled.div`   
   grid-area: main;
-  margin-top: 1.4rem;  
-  .date{
-    display: inline-block;
-    background: ${({ theme }) => theme.colors.light};
-    border-radius: ${({ theme }) => theme.borderRadius1};
-    margin-top: 1rem;
-    padding: .5rem 1.6rem;
-
-    input[type='date']{
-      background: transparent;
-      color:${({ theme }) => theme.colors.dark};
-    }
-  }
-
-  .cards{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 1.6rem;
-  }
-  @media screen and (max-width: 1200px){
-    .cards{
-      grid-template-columns: 1fr;
-      gap: 0;
-      }
-   }
-   @media screen and (max-width: 768px){
-     /*
-    margin-top: 8rem;
-    padding: 0 1rem;
-    */
-   }
+  margin-top: 1.4rem;    
 `
 
 export default function Main() {
@@ -44,15 +16,13 @@ export default function Main() {
 
       <h1>Dashboard</h1>
 
-      <div className="date">
-        <input type="date" />
-      </div>
+      <InputDate />
 
-      <div className="cards">
+      <ContainerGrid columns={3} gap='1.6rem'>
         <Card />
         <Card />
         <Card />
-      </div>
+      </ContainerGrid>
 
       <Table />
 
